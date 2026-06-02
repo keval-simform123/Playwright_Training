@@ -1,0 +1,30 @@
+import { test, expect } from '@playwright/test';
+
+test('test', async ({ page }) => {
+  await page.goto('https://qaplayground.com/bank');
+  await page.getByTestId('username-input').click();
+  await page.getByTestId('username-input').fill('admin');
+  await page.getByTestId('password-input').click();
+  await page.getByTestId('password-input').fill('admin123');
+  await page.getByTestId('login-button').click();
+  await page.getByTestId('quick-new-transaction').click();
+  await page.getByTestId('transaction-type-select').click();
+  await page.getByRole('option', { name: 'Deposit' }).click();
+  await page.getByTestId('from-account-select').click();
+  await page.getByRole('option', { name: 'Primary Savings - $' }).click();
+  await page.getByTestId('transaction-amount-input').click();
+  await page.getByTestId('transaction-amount-input').fill('60000');
+  await page.getByTestId('transaction-description-input').click();
+  await page.getByTestId('transaction-description-input').press('CapsLock');
+  await page.getByTestId('transaction-description-input').fill('B');
+  await page.getByTestId('transaction-description-input').press('CapsLock');
+  await page.getByTestId('transaction-description-input').fill('Bonus');
+  await page.getByTestId('submit-transaction-button').click();
+  await expect(page.getByRole('cell', { name: '+$60,000.00' })).toBeVisible();
+  await expect(page.getByRole('cell', { name: '$65,000.00' })).toBeVisible();
+  await expect(page.getByRole('cell', { name: 'Bonus' })).toBeVisible();
+  await expect(page.locator('#summary-deposits')).toBeVisible();
+  await expect(page.locator('#summary-withdrawals')).toBeVisible();
+  await expect(page.locator('#summary-net')).toBeVisible();
+  await expect(page.locator('#summary-count')).toBeVisible();
+});
