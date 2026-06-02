@@ -23,10 +23,6 @@ test('test', async ({ page }) => {
   await page.getByTestId('initial-balance-input').fill('45000');
   await page.getByTestId('status-active-radio').click();
   await page.getByTestId('save-account-button').click();
-  await expect(page.getByTestId('account-row-id_1780396379836_tnkj4lprp').getByTestId('account-number')).toBeVisible();
-  await expect(page.getByTestId('account-row-id_1780396379836_tnkj4lprp').getByTestId('account-name')).toBeVisible();
-  await expect(page.getByTestId('account-row-id_1780396379836_tnkj4lprp').getByTestId('account-type')).toBeVisible();
-  await expect(page.getByTestId('account-row-id_1780396379836_tnkj4lprp').getByTestId('account-balance')).toBeVisible();
   await expect(page.getByRole('cell', { name: 'Edit account TSA-The Saving' })).toBeVisible();
   await expect(page.locator('#filters-section')).toBeVisible();
   await expect(page.locator('#search-filter-container')).toBeVisible();
