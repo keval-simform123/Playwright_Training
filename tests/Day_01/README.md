@@ -3,3 +3,5 @@
     -> Installed and configured Playwright in the project
 
     -> Understood the project structure
+
+    //
