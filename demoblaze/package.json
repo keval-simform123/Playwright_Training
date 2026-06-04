@@ -1,0 +1,15 @@
+{
+  "name": "demoblaze-playwright",
+  "version": "1.0.0",
+  "description": "Playwright TypeScript assignment for demoblaze.com",
+  "scripts": {
+    "test": "npx playwright test",
+    "test:headed": "npx playwright test --headed",
+    "report": "npx playwright show-report"
+  },
+  "devDependencies": {
+    "@playwright/test": "^1.44.0",
+    "@types/node": "^25.9.1",
+    "typescript": "^5.4.5"
+  }
+}
