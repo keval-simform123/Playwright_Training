@@ -3,6 +3,8 @@
 node_modules/
 /test-results/
 /playwright-report/
+/tests/Day_07/test-results/
+/tests/Day_07/playwright-report/
 /blob-report/
 /playwright/.cache/
 /playwright/.auth/
